@@ -2,6 +2,7 @@ import threading
 import pyaudio
 import wave
 import os
+from PIL import ImageTk, Image
 from tkinter import *
 from tkinter import filedialog
 from lib.RecognitionLib import *
@@ -93,7 +94,7 @@ class App():
 
 def chooseFile():
     global filePath
-    filePath = filedialog.askopenfilename(initialdir="/C", title="Select a file", filetypes=[("wav file", "*.wav")])
+    filePath = filedialog.askopenfilename(title="Select a file", filetypes=[("wav file", "*.wav")])
     print("path :", filePath)
 
 
@@ -208,8 +209,8 @@ app = Tk()
 app.resizable(False, False)
 
 # background
-filename = PhotoImage(file="img/bn3-bg.png")
-background_label = Label(app, image=filename)
+img = PhotoImage("img/bn3-bg.png")
+background_label = Label(app, image=img)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 # Bouton Choose File
